@@ -1,6 +1,7 @@
 package com.min.springbootmall.model;
 
-import javax.xml.crypto.Data;
+import com.min.springbootmall.constant.ProductCategory;
+
 import java.sql.Timestamp;
 
 
@@ -8,7 +9,7 @@ public class Product {
 
     private Integer ProductId;
     private String ProductName;
-    private String Category;
+    private ProductCategory Category;
     private String ImageUrl;
     private int Price;
     private int Stock;
@@ -32,11 +33,11 @@ public class Product {
         ProductName = productName;
     }
 
-    public String getCategory() {
+    public ProductCategory getCategory() {
         return Category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(ProductCategory category) {
         Category = category;
     }
 
