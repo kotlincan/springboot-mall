@@ -35,4 +35,22 @@ public class ProductController {
      Product product = productService.getProductById(productId);
         return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
+
+    @PutMapping("/products/{productsId}")
+    public ResponseEntity<Product> updateProduct(@PathVariable Integer productsId,
+                                                 @RequestBody @Valid ProductRequest productRequest){
+        //檢查product 是否存在
+        Product product = productService.getProductById(productsId);
+
+        if (product == null){
+            return  ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        //修改商品數據
+        productService.updateProduct(productsId,productRequest);
+
+        Product updatedProduct = productService.getProductById(productsId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(updatedProduct);
+    }
 }
