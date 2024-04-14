@@ -1,6 +1,5 @@
 package com.min.springbootmall.dao;
 
-import com.min.springbootmall.constant.ProductCategory;
 import com.min.springbootmall.dto.ProductQueryParams;
 import com.min.springbootmall.dto.ProductRequest;
 import com.min.springbootmall.model.Product;
@@ -18,4 +17,6 @@ public interface ProductDao {
     void updateProduct(Integer productsId, ProductRequest productRequest);
 
     void deleteProductById(Integer productId);
+
+    Integer countOroduct(ProductQueryParams productQueryParams);
 }
